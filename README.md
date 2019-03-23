@@ -1,0 +1,2 @@
+# tournament-bracket-creator
+An application to enter contestants into a challenge and build a playoff-style competition bracket. This is a project to practice with front-end technologies with vanilla Javascript. 
