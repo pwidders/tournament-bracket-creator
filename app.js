@@ -5,27 +5,29 @@ class Player {
 }
 
 // Global variables
-const teams = [];
+let teams = [];
 
 class UI {
-  // Function add team
   addTeamToList(player) {
-
-  }
+    teams.push(player);
+    const list = document.getElementById('teamsList');
+    teams.forEach(function(item, index, array){
+      console.log(index, item);
+    });
+  } 
 }
 
+
 // Event listener for add team to list
-document.getElementById('addTeam').addEventListener('submit', function(e) {
+document.getElementById('addTeam').addEventListener('submit', function(e){
   const teamName = document.getElementById('teamName').value;
 
   // Instantiate Player
   const player = new Player(teamName);
-  // console.log(player);
-  teams.push(player);
-  console.log(teams);
 
   // Instantiate UI
+  const ui = new UI();
 
-  
+  ui.addTeamToList(player);
   e.preventDefault();
 })
