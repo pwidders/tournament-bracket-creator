@@ -12,23 +12,35 @@
   </head>
   <body>
     <div class="container-fluid">
-      <h1>Tournament bracket generator</h1>
-      <div>
-        <label for="teamName">Enter team name</label>
-        <input type="text" id="teamName">     
-        <input type="submit" value="Submit">  
+      <div class="container">
+          <h1>Tournament bracket generator</h1>
+          <div>
+            <form id="addTeam">
+              <label for="teamName">Enter team/player name</label>
+              <input type="text" id="teamName"> 
+              <label for="teamName">Team/player's starting seed position</label>
+              <input type="text" id="seed">       
+              <input type="submit" value="Submit" id="submitTeam">           
+            </form>
+          </div>
+          <div>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Competitor Name</th>
+                  <th scope="col">Seed</th>
+                </tr>
+              </thead>
+              <tbody id="teamsList"></tbody>
+            </table>
+          </div>
+  
+          <hr>
+          <div class="braket-area">
+  
+          </div>
+        </div>        
       </div>
-      <div>
-      <ol type="1" id="teamsList">
-
-      </ol>
-      </div>
-
-      <hr>
-      <div class="braket-area">
-
-      </div>
-    </div>
 
     <script src="app.js"></script>
     <!-- Optional JavaScript -->
