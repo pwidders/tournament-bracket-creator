@@ -31,6 +31,10 @@ class UI {
     list.appendChild(row);
     });
   } 
+
+  clearField() {
+    document.getElementById('teamName').value = '';
+  }
 }
 
 
@@ -45,5 +49,6 @@ document.getElementById('addTeam').addEventListener('submit', function(e){
   const ui = new UI();
 
   ui.addTeamToList(player);
+  ui.clearField();
   e.preventDefault();
 })
