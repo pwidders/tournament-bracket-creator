@@ -10,10 +10,11 @@ let teams = [];
 class UI {
   addTeamToList(player) {
     teams.push(player);
-    const list = document.getElementById('teamsList');
+  }
 
-    // Clear all tasks
-    (function clearTasks() {
+  listTeams() {
+    const list = document.getElementById('teamsList');
+    (function clearList() {
       while(list.firstChild) {
         list.removeChild(list.firstChild);
       }
@@ -30,10 +31,22 @@ class UI {
 
     list.appendChild(row);
     });
-  } 
+  }
 
   clearField() {
     document.getElementById('teamName').value = '';
+  }
+
+  deleteTeam(target) {
+    if(target.className === 'delete') {
+      const cellValue = target.parentElement.parentElement.td.text; 
+      console.log(cellValue);
+      target.parentElement.parentElement.remove();
+      //console.log(teams);
+
+      // Remove team from teams array
+
+    }     
   }
 }
 
@@ -42,13 +55,20 @@ class UI {
 document.getElementById('addTeam').addEventListener('submit', function(e){
   const teamName = document.getElementById('teamName').value;
 
-  // Instantiate Player
   const player = new Player(teamName);
 
-  // Instantiate UI
   const ui = new UI();
 
   ui.addTeamToList(player);
+  ui.listTeams();
   ui.clearField();
   e.preventDefault();
+})
+
+// Event listener for delete team
+document.getElementById('teamsList').addEventListener('click', function(e) {
+
+  const ui = new UI();
+
+  ui.deleteTeam(e.target);
 })
