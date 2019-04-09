@@ -26,8 +26,8 @@ class UI {
       row.innerHTML = `
       <td>${item.title}</td>
       <td>${index + 1}</td>
-      <td><a href="#" class="delete">X<a></td>
-    `;
+      <td><a href="#" class="delete" team=${item.title}>X<a></td>
+      `;
 
     list.appendChild(row);
     });
@@ -39,17 +39,20 @@ class UI {
 
   deleteTeam(target) {
     if(target.className === 'delete') {
-      const cellValue = target.parentElement.parentElement.td.text; 
-      console.log(cellValue);
+      const cellValue = target.attributes.team.nodeValue;
+      // console.log(cellValue);
       target.parentElement.parentElement.remove();
-      //console.log(teams);
-
+      
       // Remove team from teams array
+      teams = teams.filter(team => team.title !== cellValue)
+      console.log(teams);  
 
+      // Re-list teams
+      const ui = new UI();
+      ui.listTeams();
     }     
   }
 }
-
 
 // Event listener for add team to list
 document.getElementById('addTeam').addEventListener('submit', function(e){
