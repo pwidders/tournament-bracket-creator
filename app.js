@@ -1,3 +1,4 @@
+// Player/team constructor
 class Player {
   constructor(title) {
     this.title = title;
@@ -45,7 +46,7 @@ class UI {
       
       // Remove team from teams array
       teams = teams.filter(team => team.title !== cellValue)
-      console.log(teams);  
+      // console.log(teams);  
 
       // Re-list teams
       const ui = new UI();
@@ -55,7 +56,7 @@ class UI {
 }
 
 // Event listener for add team to list
-document.getElementById('addTeam').addEventListener('submit', function(e){
+document.getElementById('addTeam').addEventListener('submit', function(e) {
   const teamName = document.getElementById('teamName').value;
 
   const player = new Player(teamName);
@@ -74,4 +75,27 @@ document.getElementById('teamsList').addEventListener('click', function(e) {
   const ui = new UI();
 
   ui.deleteTeam(e.target);
+})
+
+// Event listener for generate bracket
+document.getElementById('generateBracket').addEventListener('click', function(e) {
+  const ui = new UI();
+  const numberOfTeams = teams.length;
+  // console.log(numberOfTeams);
+
+  // Switch case depending on number of teams entered
+  switch (numberOfTeams) {
+    case 1:
+      console.log(numberOfTeams);
+      alert('Please enter at least 3 teams to continue');
+      break;
+    case 2:
+      console.log(numberOfTeams);
+      alert('Please enter at least 3 teams to continue');
+      break;
+    case 3:
+      console.log(numberOfTeams);
+
+      break;
+  }
 })
